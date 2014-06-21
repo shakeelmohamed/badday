@@ -1,0 +1,7 @@
+form#join_form(method="post" action="/join" name="join_form")
+    .row
+        .large-6.large-offset-3
+            input#user(type="text" name="user" placeholder="Username" pattern=".{4,}" required)
+            input#email(type="text" name="email" placeholder="Email" required)
+            input#password(type="password" name="password" placeholder="Password" pattern=".{6,}" title="Please enter a password with at least 6 characters" required)
+            button#register(type="submit" name="register" value="register") Join

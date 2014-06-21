@@ -1,0 +1,6 @@
+form(method="post", action="/signin", name="entry_form")
+    .row
+        .large-6.large-offset-3
+            input#user(type="text", name="user", placeholder="Username or email", required)
+            input#password(type="password", name="password", placeholder="Password", required)
+            button#signin(type="submit", name="signin", value="signin") Sign in
