@@ -1,7 +1,7 @@
 {
-  "name": "skip",
+  "name": "BadDay",
   "version": "0.0.1",
-  "description": "yeah",
+  "description": "Anonymously vent about your bad days",
   "main": "app.js",
   "dependencies": {
     "async": "*",
@@ -18,7 +18,7 @@
     "generator-egress"
   ],
   "author": {
-    "name": "me"
+    "name": "shakeelmohamed"
   },
   "engine": {
     "node": "0.10.x"
