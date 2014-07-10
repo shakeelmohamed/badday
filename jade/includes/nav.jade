@@ -1,0 +1,17 @@
+mixin navigationItem(path, label)
+    li(class=path===loc ? "active" : "")
+        a(href="/"+path)= label
+
+nav.top-bar(data-topbar, data-options="is_hover: false")
+    ul.title-area
+        li.name
+            h1
+                a(href="#") #{siteName}
+        li.toggle-topbar.menu-icon
+            a(href="#")
+                span Menu
+    section.top-bar-section
+        ul.right
+            for label, path in {"": "Home"}
+                +navigationItem(path, label)
+br

@@ -1,0 +1,26 @@
+{
+  "name": "baddayio",
+  "version": "0.0.1",
+  "description": "Tell strangers about your bad day & receive support.",
+  "main": "app.js",
+  "dependencies": {
+    "async": "*",
+    "bcrypt-nodejs": "0.0.3",
+    "express": "3.x",
+    "jade": "0.35.0",
+    "pg": "2.x"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "egress",
+    "generator-egress"
+  ],
+  "author": {
+    "name": ""
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
