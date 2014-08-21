@@ -1,16 +1,19 @@
 doctype html
-html(lang="en", class="no-js")
+html(lang="en")
     include includes/head
     body
         include includes/nav
-        .row
-          .large-12.columns
-            .text-center.egress-template
-                header.page-header
-                    h1 Sign in to #{siteName}
-                if msg
-                    .alert.alert-danger#error #{msg}
-                
-                include forms/signin
+        include includes/noscript
+        .container-fluid
+            .row-fluid.egress-template
+                .row-fluid.text-center
+                    .container
+                        if msg
+                            .alert.alert-danger#error #{msg}
+                        header.hidden-xs
+                            h1 Sign in to #{siteName}
+                            hr
+                        include forms/signin
         
         include includes/scripts
+        script(src="js/clearLocalStorage.js")

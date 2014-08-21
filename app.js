@@ -1,7 +1,8 @@
-var async = require("async");
+//var async = require("async"); //TODO: commented out for not since not using it here
 var express = require("express");
 var fs = require("fs");
-var pg = require("pg");
+var path = require("path");
+//var pg = require("pg"); //TODO: commented out for not since not using it here
 
 var routes = require("./routes");
 var app = express();
@@ -44,19 +45,22 @@ function getEnvironmentVariables(filepath, existingVariables) {
 app.configure(function () {
     app.locals(config);
     app.locals.pretty = true;
-    app.set("views", __dirname + "/jade");
+    app.set("views", path.join(__dirname, "jade"));
     app.set("view engine", "jade");
     app.use(express.urlencoded());
     app.use(express.json());
     app.use(express.cookieParser());
-    app.use(express.session({ secret: "egress-secret-goes-right-here-now"}));
-    app.use(express.static(__dirname + "/public"));
+    app.use(express.session({secret: "egress-secret-goes-right-here-now"})); // Not setting a max session length
+    app.use(express.static(path.join(__dirname, "public")));
+    app.use(express.favicon(path.join(__dirname, "public/img/favicon.ico")));
     app.use(app.router);
     app.use(function (req, res) {
         res.redirect("/404");
     });
 });
 
+/* TODO: ignoring the DB table check for now, will address later w/ all tables/views
+    // TODO: use create-tables.sql
 pg.connect(config.DATABASE_URL, function (err, client) {
     if (err) {
         return console.error("ERROR: Could not connect to postgres", err);
@@ -98,6 +102,7 @@ pg.connect(config.DATABASE_URL, function (err, client) {
         }
     );
 });
+*/
 
 routes.init(app);
 module.exports = app;
