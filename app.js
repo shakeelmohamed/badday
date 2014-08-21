@@ -52,7 +52,7 @@ app.configure(function () {
     app.use(express.cookieParser());
     app.use(express.session({secret: "egress-secret-goes-right-here-now"})); // Not setting a max session length
     app.use(express.static(path.join(__dirname, "public")));
-    app.use(express.favicon(path.join(__dirname, "public/img/favicon.ico")));
+    // app.use(express.favicon(path.join(__dirname, "public/img/favicon.ico"))); // TODO: update favicon
     app.use(app.router);
     app.use(function (req, res) {
         res.redirect("/404");
